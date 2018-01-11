@@ -1,0 +1,49 @@
+
+
+            <section class="content" id="content--full">
+                <div class="row m-t-10">
+                    <div class="col-sm-3 p-l-20 col-middle">
+                        <form role="form" ng-submit=" accounts.createAccount()">
+                            <div class="form-group form-group-default" ng-class="{ 'has-error': form.category.$dirty && form.category.$error.required }">
+                                <label for="type" class="bold text-mute fs-14">Account Type</label>
+                                <input name="type" class="form-control" placeholder="Enter Account Type" ng-model="account.type" required> </textarea>
+                                <span ng-show="form.type.$dirty && form.type.$error.required" class="help-block">Account type is required</span>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error': form.description.$dirty && form.description.$error.required }">
+                                <label for="description" class="bold text-mute fs-14">Account Description</label>
+                                <textarea name="description" id="description" placeholder="Enter Accounts Description" class="form-control" ng-model="accounts.description" required> </textarea>
+                                <span ng-show="form.description.$dirty && form.description.$error.required" class="help-block">Accounts Description is required</span>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-disabled="form.$invalid || accounts.dataLoading" class="btn bg-indigo-light text-white btn-block">Add Account Type</button>
+                            </div>
+                            <br />
+                        </form>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="m-t-20" ng-if="categories != 'No content was found'">
+                            <h5 class="text-success" ng-bind="response"></h5>
+                            <h5 class="text-danger" ng-bind="Error"></h5>
+                            <table class="table table-striped table-condensed manager-table">
+                                <thead>
+                                    <tr>
+                                        <th>Account Type</th>
+                                        <th>Account Description</th>
+                                        <th width="10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(index, accounts) in Account">
+                                        <td ng-bind="accounts.type"></td>
+                                        <td ng-bind="accounts.description"></td>
+                                        <td>
+                                            <a href="#" ng-click="users.deleteUser(userData.uname)"><i class="zmdi zmdi-delete"></i></a>
+                                            <a href="#" ng-click="users.getUserData(userData.uname)" data-target="#editUsers" data-toggle="modal"><i class="ti-pencil"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </secton>

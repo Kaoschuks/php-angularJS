@@ -1,0 +1,22 @@
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-preview" ng-repeat="(index, post) in Posts">
+                        <a href="News/{{post.category.split(' ').join('-')}}/{{post.title.split(' ').join('-')}}">
+                            <h2 class="post-title" ng-bind="post.title"></h2>
+                            <h3 class="post-subtitle" ng-bind="cutString(post.description, 20)"></h3>
+                        </a>
+                        <p class="post-meta">Posted by <a href="#" ng-bind="post.author"></a> on {{post.posted_on}}</p>
+                    </div>
+                    <hr>
+                    <!-- Pager -->
+                    <ul class="pager">
+                        <li class="next">
+                            <a href="#">Older Posts &rarr;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>

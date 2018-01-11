@@ -1,0 +1,24 @@
+
+          <form id="loginForm" name="form" ng-submit="vm.login()" class="p-t-15" role="form">
+            <!-- START Form Control-->
+            <div class="form-group form-group-default" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+              <label>Login</label>
+              <p class="text-danger" ng-bind="vm.Error"></p>
+              <div class="controls">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Username" ng-model="vm.username" required autofocus/>
+                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+              </div>
+            </div>
+            <!-- END Form Control-->
+            <!-- START Form Control-->
+            <div  class="form-group form-group-default" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+              <label>Password</label>
+              <div class="controls">
+                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="vm.password" required />
+                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+              </div>
+            </div>
+
+            <!-- END Form Control-->
+            <button ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
+          </form>

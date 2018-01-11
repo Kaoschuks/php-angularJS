@@ -1,0 +1,38 @@
+
+
+                <div class="login">
+                    <div class="card m-t-20">
+                        <div class="card-block">
+                                <form id="loginForm" name="form" ng-submit="vm.login()"  class="padding-10 m-b-30 m-t-20"  role="form">
+                                    <div class="m-b-40 m-t-30">
+                                        <h2 class="fw-100 fs-25 text-warning">
+                                            Forgot Password
+                                        </h2>
+                                        <p class="text-muted m-t-10 m-b-15">
+                                            For your protection, please verify your identity.
+                                        </p>
+                                        <p class="text-danger" ng-bind="vm.Error"></p>
+                                    </div>
+                                    
+                                    <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                        <label class="bold">Username</label>
+                                        <div class="controls">
+                                            <input type="text" name="username" id="username" class="form-control" placeholder="Enter your user name" ng-model="vm.username" required autofocus/>
+                                            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <button ng-disabled="form.$invalid || vm.dataLoading" type="submit" class="btn btn-primary btn-block">Rcover Account</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><a ng-href="Login" class="pull-right text-muted m-t-5">Have credentials?</a></p>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            
+              

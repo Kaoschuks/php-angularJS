@@ -1,0 +1,68 @@
+
+
+            <section class="content" id="content--full">
+                <div class="container-fluid no-padding no-margin bg-gray shadow-bottom" style="height: 50px; width: 104.5%; margin-top: -10px; margin-left: -20px">
+                    <div class="col-sm-10 m-l-10  pull-left">
+                        <h1 class="fs-16 text-dark p-t-20">{{page.split('/')[1]}} {{page.split('/')[2]}}</h1>
+                        <a ng-click="mail.addNew()" class="btn btn--action btn-transparent btn--fixed bg-indigo-light text-white" data-toggle="collapse" data-target="#addNew"><i class="zmdi zmdi-plus"></i></a>
+                        <a class="btn btn-update hidden" data-toggle="collapse" data-target="#addNew"><i class="zmdi zmdi-plus"></i></a>
+                    </div>
+                </div>
+                <div class="row m-t-20">
+                    <div class="col-sm-12 collapse" id="addNew">
+                        <form class="row" role="form" ng-submit="mail.createNewsletter()">
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label for="message"><h5 class="fs-14 text-default no-padding">Message</h5></label>
+                                    <textarea id="textarea" style="height: 150px" class="padding-10 bg-gray form-control" ng-model="mail.message"> </textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 m-t-20">
+                                <div class="form-group" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                                    <label for="title"><h5 class="fs-14 text-default no-padding">Title</h5></label>
+                                    <input type="text" placeholder="Enter newsletter title" name="title" id="message" class="p-l-10 bg-gray form-control" ng-model="mail.title" required />
+                                    <span ng-show="form.title.$dirty && form.title.$error.required" class="help-block">Title is required</span>
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error': form.subject.$dirty && form.subject.$error.required }">
+                                    <label for="subject"><h5 class="fs-14 text-default no-padding">Subject</h5></label>
+                                    <input type="text" placeholder="Enter newsletter subject" name="subject" id="message" class="p-l-10 bg-gray form-control" ng-model="mail.subject" required />
+                                    <span ng-show="form.subject.$dirty && form.subject.$error.required" class="help-block">Subject is required</span>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary btn-cons">Save Newsletter Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="m-t-20 table manager-table table-striped table-condensed page-table">
+                                <thead class="thead-default">
+                                    <tr>
+                                        <th>Created On</th>
+                                        <th>Title</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>                                                   
+                                        <th>Published By</th>                                                   
+                                        <th>Action</th>                                                   
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-click="mail.getMessage(msg.id)" ng-repeat="(index, msg) in messages" ng-if="index !== 'count'">
+                                        <td ng-bind="msg.created"></td>
+                                        <td ng-bind="msg.title"></td>
+                                        <td ng-bind="msg.subject"></td>
+                                        <td>
+                                            <div ng-bind="cutString(msg.message, 20)"></div>
+                                        </td>
+                                        <td ng-bind="msg.by"></td>
+                                        <td>
+                                            <button class="btn btn-xs btn-link no-padding text-black" ng-click="mail.deleteNewsletter(msg.id)"><i class="fs-18 zmdi zmdi-delete"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>

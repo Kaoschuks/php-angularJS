@@ -1,0 +1,55 @@
+
+
+            <section class="content" id="content--full">
+                <div class="container-fluid no-padding no-margin bg-gray shadow-bottom" style="height: 50px; width: 104.5%; margin-top: -10px; margin-left: -20px">
+                    <div class="col-sm-12 m-l-10">
+                        <h1 class="fs-16 text-dark p-t-20">{{page.split('/')[1]}} Manager</h1>
+                    </div>
+                </div>
+                <div class="row m-t-10">
+                    <div class="col-sm-4">
+                        <form name="form" ng-submit="pages.saveFaq()" role="form">
+                            <div class="form-group" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                                <label for="title" class="fs-14 bold text-dark">Question</label>
+                                <input type="text" class="form-control bg-gray-light p-l-10" placeholder="New frequently asked Questions" name="title" id="title" ng-model="pages.question" required />
+                                <span ng-show="form.title.$dirty && form.title.$error.required" class="help-block text-danger">Title data is required</span>
+                                <i class="form-group__bar"></i>
+                            </div>
+                            <br />
+                            <div class="form-group" ng-class="{ 'has-error': form.faq.$dirty && form.faq.$error.required }">
+                                <label class="bold text-dark fs-14" for="faq">Response</label>
+                                <textarea class="form-control bg-gray-light p-l-10" style="height: 150px" placeholder="Question's answer" name="faq" id="faq" ng-model="pages.title" required> </textarea>
+                                <span ng-show="form.faq.$dirty && form.faq.$error.required" class="help-block">Response data is required</span>
+                                <i class="form-group__bar"></i>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-block bg-indigo-light text-white">Save New Faq</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-8 p-l-20">
+                        <div class="table-responsive p-t-5">
+                            
+                            <table class="table table-condensed">
+                                <thead class="thead-default">
+                                    <th>#</th>
+                                    <th width="25%">Title</th>
+                                    <th width="55%">Answer</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(index, faqs) in pages.faqs" ng-if="index !== 'count'">
+                                        <td ng-bind="index"></td>
+                                        <td ng-bind="faqs.question"></td>
+                                        <td ng-bind="faqs.answer"></td>
+                                        <td>
+                                            <button class="btn btn-link text-black no-padding" ng-click="pages.deleteFaq(faqs.id)"><i class="fs-18 zmdi zmdi-delete"></i></button>
+                                            <!-- <button ng-click="app.getSingleFaq(faqs.question)" class="btn btn-success btn-xs m-l-10" data-target="#editFaq" data-toggle="modal">Edit</button> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>

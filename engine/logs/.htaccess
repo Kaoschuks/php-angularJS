@@ -1,0 +1,5 @@
+    Header set Access-Control-Allow-Origin "http://localhost"
+
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Depth, User-Agent, X-File-Size, Authorization, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Token"
+    

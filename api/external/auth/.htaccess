@@ -1,0 +1,27 @@
+
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<Files init.php>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+#Change the default page
+DirectoryIndex init.php
+
+php_value auto_prepend_file "../../../engine/engine.php"
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /Caos/api/external/auth/
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ init.php [QSA,L]
+
+    # Block suspicious request methods    
+    RewriteCond %{REQUEST_METHOD} ^(HEAD|TRACE|DELETE|TRACK|DEBUG) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>

@@ -1,0 +1,70 @@
+        
+
+            <section class="content" id="content--full">
+                <div class="container-fluid no-padding no-margin bg-gray shadow-bottom" style="height: 50px; width: 104.5%; margin-top: -10px; margin-left: -20px">
+                    <div class="col-sm-12 m-l-10">
+                        <h1 class="fs-16 text-dark p-t-20"><i class="zmdi zmdi-long-arrow-return fs-18 p-r-10"></i> Update {{page.split('/')[1]}} Manager</h1>
+                    </div>
+                </div>
+                <form name="form" class="row" ng-submit="posts.updatePost()" role="form"> 
+                    <h3 class="fs-12 text-danger" ng-bind="Error"></h3>
+                    <h3 class="fs-12 text-success" ng-bind="Posts"></h3>
+                    <div class="col-sm-8">
+                        <div class="row no-padding m-t-20">
+                            <div class="col-sm-10 col-xs-12">
+                                <div class="form-group form-top" ng-class="{ 'has-error': form.title.$dirty && form.title.$error.required }">
+                                    <label for="title" class="fs-12 font-arial bold m-b-10">Title</label>
+                                    <input type="text" placeholder="Enter blog title ..." name="title" id="title" class="form-control bg-gray-light input-sm p-l-10" ng-model="posts.title" required />
+                                    <span ng-show="form.title.$dirty && form.title.$error.required" class="help-block text-danger">Title is required</span>
+                                    <i class="form-group__bar"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group" >
+                                    <label class="fs-12 bold m-b-10" for="description">Blog description</label>
+                                    <textarea class="form-control bg-gray-light padding-10" style="width: 100%; height: 370px; font-size: 14px; line-height: 18px;" ng-model="posts.description" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="hidden-xs m-t-20"></div>
+                        <div class="form-group">
+                            <label for="category" class="fs-12 bold m-b-10">Category</label>
+                            <select name="category" id="category" class="select form-control bg-gray-light p-l-10">
+                                <option ng-repeat="(index, category) in categories" ng-if="category.name == posts.category"  value="{{category.name}}">{{category.name}}</option>
+                                <div ng-if="categories == 'No content was found'"></div>
+                                <div ng-if="categories != 'No content was found'">
+                                    <option value="{{category.name}}" ng-repeat="(index, category) in categories" ng-if="index !== 'count' && category.name != posts.category" ng-bind="category.name"></option>
+                                </div>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="category" class="fs-12 bold m-b-10">Post Status</label>
+                            <select name="category" id="status" class="select form-control bg-gray-light p-l-10">
+                                <option ng-repeat="(index, stats) in status" ng-if="stats == posts.status"  value="{{stats}}">{{stats}}</option>
+                                <option ng-repeat="(index, stats) in status" ng-if="stats != posts.status"  value="{{stats}}">{{stats}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group p-b-5" ng-class="{ 'has-error': form.author.$dirty && form.author.$error.required }">
+                            <label for="author" class="fs-12 bold m-b-10">Author</label>
+                            <input type="text" name="author" id="author" class="input-sm form-control p-l-10 bg-gray-light" ng-model="posts.author" required />
+                            <i class="form-group__bar"></i>
+                            <span ng-show="form.author.$dirty && form.author.$error.required" class="help-block">Author is required</span>
+                        </div>
+                        <div class="form-group p-b-5 no-padding">
+                            <img ng-src="{{posts.image}}" id="featuredImage" ng-class="(!posts.image) ? hidden : display" class="m-t-10 m-b-20" style="width:100%; height:200px" />
+                            <a class="fs-15 bold text-primary text-left " data-target="#gallery" data-toggle="modal" id="selectImage">Click to set a featured Image</a>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="form-actions">
+                            <button type="submit" class="btn bg-indigo-light btn--action btn--fixed">
+                                <i class="zmdi zmdi-google-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </secton>

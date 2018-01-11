@@ -1,0 +1,87 @@
+
+            
+            <section class="content" id="content--full">
+                <div class="container-fluid no-padding no-margin bg-gray shadow-bottom" style="height: 50px; width: 104.5%; margin-top: -10px; margin-left: -20px">
+                    <div class="col-sm-12 m-l-10">
+                        <h1 class="fs-16 text-dark p-t-20">{{page.split('/')[2]}} {{page.split('/')[1]}} Manager</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3 no-margin">
+                        <div class="card padding-10">
+                            <div class="row">
+                                <div class="col-2 text-left">
+                                    <i class="zmdi zmdi-shopping-cart fs-30 text-warning m-t-10 p-l-10"></i>
+                                </div>
+                                <div class="col-9 m-l-10 text-right">
+                                    <h4 class="text-muted fs-20 fw-100">{{app.DashboardData.Posts.count}} <span class="bold fs-14">Posts</span></h4>
+                                    <small class="text-muted bold fs-12">{{app.DashboardData.Posts.approved}} waiting approval</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card padding-10">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h4 class="fs-20 text-muted fw-100">{{app.DashboardData.Subscribers.count}} <span class="bold fs-14">Subscribers</span></h4>
+                                    <small class="text-muted bold fs-12">{{app.DashboardData.Subscribers.count}} newsletter subscribers.</small>
+                                </div>
+                                <div class="col-2 text-right">
+                                    <i class="zmdi zmdi-receipt fs-30 text-success m-t-10 p-r-10"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card padding-10">
+                            <div class="row">
+                                <div class="col-2 text-left">
+                                    <i class=" zmdi zmdi-comment-alt-text fs-30 text-primary p-l-10 m-t-10"></i>
+                                </div>
+                                <div class="col-9 no-padding text-right">
+                                    <h4 class="fs-20 text-muted fw-100">{{app.DashboardData.comments.count}} <span class="bold fs-14">Reviews</span></h4>
+                                    <small class="text-muted bold fs-12">{{app.DashboardData.comments.approved}} comments approved.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card padding-10">
+                            <div class="row">
+                                <div class="col-8 no-padding text-left">
+                                    <h4 class="p-l-20 fs-20 text-muted fw-100">{{app.DashboardData.Accounts.count}}  <span class="bold fs-14">Accts</span></h4>
+                                    <small class="p-l-20 text-muted bold fs-12">{{app.DashboardData.Accounts.approved}} approved Signups.</small>
+                                </div>
+                                <div class="col-2 text-right">
+                                    <i class="zmdi zmdi-accounts m-t-10 fs-30 purple"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: -20px !important">
+                    <div class="col-sm-12">
+                        <div class="card no-padding no-margin">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-header padding-15 m-b-20">
+                                        <h2 class="card-title">Activity</h2>
+                                        <small class="card-subtitle">Your last activity is posted 24 hours ago.</small>
+                                    </div>
+                                    <div class="card-block row">
+                                        <div class="col-sm-10 no-padding" style="width: 100% !important; height: 300px !important; margin-top: -20px !important; margin-bottom: 30px !important">
+                                            <br />
+                                            <canvas id="line-chart"></canvas>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-2 no-padding text-left">
+                                            <div class="legend m-t-50" id="myChartLegend"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

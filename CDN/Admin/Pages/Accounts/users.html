@@ -1,0 +1,152 @@
+
+            <section class="content" id="content--full">
+                <div class="container-fluid no-padding no-margin bg-gray shadow-bottom" style="height: 50px; width: 104.5%; margin-top: -10px; margin-left: -20px">
+                    <div class="col-sm-12 m-l-10">
+                        <h1 class="fs-16 text-dark p-t-20">Site {{page.split('/')[2]}} {{page.split('/')[1]}} Manager</h1>
+                    </div>
+                </div>
+                <div class="table-responsive page-table">
+                    <h5 class="text-success" ng-bind="response"></h5>
+                    <h5 class="text-danger" ng-bind="Error"></h5>
+                    <table datatable="ng" dt-options="dtOptions" class="table table-condensed manager-table">
+                        <thead>
+                            <tr>
+                                <th width="15%">Username</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                                <th>Type</th>
+                                <th>Sex</th>
+                                <th width="10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(index, userData) in Users" ng-if="index !== 'count'">
+                                <td ng-bind="userData.uname"></td>
+                                <td ng-bind="userData.fname"></td>
+                                <td ng-bind="userData.lname"></td>
+                                <td ng-bind="userData.email"></td>
+                                <td ng-bind="userData.type"></td>
+                                <td ng-bind="userData.sex"></td>
+                                <td>
+                                    <a class="m-r-20" ng-click="users.deleteUser(userData.uname)"><i class="text-black fs-16 zmdi zmdi-delete"></i></a>
+                                    <a ng-click="users.getUserData(userData.uname)" data-target="#editUsers" data-toggle="modal"><i class="text-black fs-16 zmdi zmdi-edit"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        <div class="modal bg-white" id="editUsers" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content-wrapper">
+                    <div class="modal-content">
+                        <div class="modal-body ">
+                        <form name="form" class="" ng-submit="users.updateUser()" role="form">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="form-group-attached">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <h3 class="bold pull-left">Update User Data</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group-attached p-t-20">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-default required">
+                                                <label>First name</label>
+                                                <input type="text" placeholder="Enter First Name" ng-model="users.fname" class="form-control" required="Username required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Last name</label>
+                                                <input type="text" placeholder="Enter Last Name" ng-model="users.lname" class="form-control" required="Last Name Required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group-attached">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default required">
+                                            <label>Other names</label>
+                                            <input type="text" placeholder="Enter Other Name(s)" ng-model="users.oname" class="form-control" required="Other Names Required">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.email.$dirty && form.username.$error.required }">
+                                                <label for="email">Email</label>
+                                                <input type="email" name="email" placeholder="Enter example@example.com" id="email" class="form-control" ng-model="users.email" required />
+                                                <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.sex.$dirty && form.sex.$error.required }">
+                                                <label for="sex">Sex</label>
+                                                <input type="text" name="sex" placeholder="Enter your sex" id="sex" class="form-control" ng-model="users.sex" required />
+                                                <span ng-show="form.sex.$dirty && form.sex.$error.required" class="help-block">Sex is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.status.$dirty && form.status.$error.required }">
+                                                <label for="status">Status</label>
+                                                <input type="text" name="status" placeholder="Enter example@example.com" id="status" class="form-control" ng-model="users.status" required />
+                                                <span ng-show="form.status.$dirty && form.status.$error.required" class="help-block">Status is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.type.$dirty && form.type.$error.required }">
+                                                <label for="type">Type</label>
+                                                <input type="text" name="type" placeholder="Enter your type" id="type" class="form-control" ng-model="users.type" required />
+                                                <span ng-show="form.type.$dirty && form.type.$error.required" class="help-block">Type is required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group-attached p-t-20 p-b-10">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <h5 class="text-mute bold pull-left">Authentication Information</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group-attached">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <input type="hidden" name="username" placeholder="Enter Username" class="form-control" ng-model="users.previous"/>
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                                <label for="username">Username</label>
+                                                <input type="text" name="username" placeholder="Enter Username" id="username" class="form-control" ng-model="users.username" required />
+                                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-default required" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                                                <label for="password">Password</label>
+                                                <input type="password" name="password" placeholder="Enter Password" id="password" class="form-control" ng-model="users.password" required />
+                                                <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-default required">
+                                                <label>Access Level</label>
+                                                <input type="text" name="access" placeholder="Enter your access level" id="access" class="form-control" ng-model="users.access" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" ng-disabled="form.$invalid || users.dataLoading" class="btn btn-primary">Create user</button>
+                                <button class="close btn btn-sm btn-danger" data-dismiss="modal">Close Dialog</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>

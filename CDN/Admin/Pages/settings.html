@@ -1,0 +1,177 @@
+
+
+            <section class="content" id="content--full">
+                
+                <div class="row">
+                    <div class="col-sm-10">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active no-padding padding-10 bold" data-toggle="tab" data-target="#general-tab" role="tab">General</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link no-padding padding-10" data-toggle="tab" data-target="#mail-tab" role="tab">Mail</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link no-padding padding-10" data-toggle="tab" data-target="#social-tab" role="tab">Social</a>
+                            </li>
+                        </ul>
+                
+                        <div class="tab-content padding-20">
+                            <div class="tab-pane fade active show" id="general-tab">
+                                <h5 class="fs-14 bold hint-text text-default">General Site Configuration </h5>
+                                <form role="form" ng-submit="settings.saveSiteAnalyticsConfig()" class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Site Url</label>
+                                            <input type="url" placeholder="Enter site url" class="form-control" name="siteurl" ng-model="settings.siteurl" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Favicon</label>
+                                            <input type="url" placeholder="Enter site favicon" class="form-control" name="favicon" ng-model="settings.favicon" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Short Icon</label>
+                                            <input type="url" placeholder="Enter site shorticon" class="form-control" name="shorticon" ng-model="settings.shorticon" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Upload</label>
+                                            <input type="text" placeholder="Enter Uploads information" class="form-control" name="siteupload" ng-model="settings.siteupload" required>
+                                        </div>
+                                        <div class="m-t-10 form-group hidden">
+                                            <label>Minify Fiie</label>
+                                            <input type="hidden" placeholder="Enter Copyrights information" class="form-control" value="1" name="minify" ng-model="settings.minify" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Site Name</label>
+                                            <input type="text" placeholder="Enter site name" class="form-control" name="sitename" ng-model="settings.sitename" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Author</label>
+                                            <input type="text" placeholder="Enter Author" class="form-control" name="siteauthor" ng-model="settings.siteauthor" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Copyrights</label>
+                                            <input type="text" placeholder="Enter Copyrights information" class="form-control" name="sitecopyrights" ng-model="settings.sitecopyrights" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Site Index</label>
+                                            <input type="text" placeholder="Enter site indexing key words" class="form-control" name="siteindex" ng-model="settings.siteindex" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="m-t-10 form-group">
+                                            <label>Site Server URL</label>
+                                            <input type="url" placeholder="Enter site server url" class="form-control" name="siteapi" ng-model="settings.siteapi" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Site Content Deliver Network</label>
+                                            <input type="url" placeholder="Enter site cdn" class="form-control" name="sitecdn" ng-model="settings.sitecdn" required>
+                                        </div>
+                                        <div class="m-t-10 form-group">
+                                            <label>Site Search Keywords</label>
+                                            <input type="text" placeholder="Enter site search key words" class="form-control" name="sitekeywords" ng-model="settings.sitekeywords" required>
+                                        </div>
+                                        <div class="form-action">
+                                            <button type="submit" class="btn btn--action btn--fixed bg-indigo text-white"><i class="zmdi zmdi-google-play"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade row" id="mail-tab">
+                                <form role="form" ng-submit="settings.saveMailConfiguration()" class="col-sm-6 col-md-4">
+                                    <p class="text-success" ng-bind='mailConfig'></p>
+                                    <p class="text-danger" ng-bind='mailerror'></p>
+                                    <div class="form-group">
+                                        <label>Mail Host</label>
+                                        <input type="text" placeholder="Enter mail server host" class="form-control" name="host" ng-model="settings.host">
+                                    </div>
+                                    <div class="m-t-10 form-group">
+                                        <label>Mail Server Name</label>
+                                        <input type="text" placeholder="Enter mail server name" class="form-control" name="name" ng-model="settings.name">
+                                    </div>
+                                    <div class="m-t-10 form-group">
+                                        <label>Mail Server User</label>
+                                        <input type="email" placeholder="Enter mail server email" class="form-control" name="user" ng-model="settings.user">
+                                    </div>
+                                    <div class="m-t-10 form-group">
+                                        <label>Mail Server Password</label>
+                                        <input type="password" placeholder="Enter mail server password" class="form-control" name="password" ng-model="settings.password">
+                                    </div>
+                                    <div class="m-t-10 form-group">
+                                        <label>Response Email</label>
+                                        <input type="email" placeholder="Enter email for user response" class="form-control" name="email" ng-model="settings.email">
+                                    </div>
+                                    <div class="form-action">
+                                        <button type="submit" class="btn btn--action btn--fixed bg-info text-white"><i class="zmdi zmdi-google-play"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="social-tab">
+                                <form class="row">
+                                    <div class="col-md-4"> 
+                                        <h5 class="fs-14 bold hint-text text-default">Facebook Configuration Information </h5>
+                                        <br />
+                                        <div class="form-group">
+                                            <label>Facebook Page Name</label>
+                                            <input type="text" placeholder="Enter Facebook Page Name" class="form-control" name="fbsitename" ng-model="app.fbsitename" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Facebook Type</label>
+                                            <input type="text" placeholder="Enter Facebook Type" class="form-control" name="fbtype" ng-model="app.fbtype" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Facebook Admin</label>
+                                            <input type="text" placeholder="Enter Facebook Admin" class="form-control" name="fbadmin" ng-model="app.fbadmin" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Facebook Page Url</label>
+                                            <input type="url" placeholder="Enter Facebook Page url" class="form-control" name="fbpageurl" ng-model="app.fbpageurl" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"> 
+                                        <h5 class="fs-14 bold hint-text text-default">Google Configuration Information </h5>
+                                        <br />
+                                        <div class="form-group">
+                                            <label>Google Business Name</label>
+                                            <input type="text" placeholder="Enter your google business name" class="form-control" name="gpbname" ng-model="app.gpbname" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Google Author Name</label>
+                                            <input type="text" placeholder="Enter your google business author name" class="form-control" name="gpbaname" ng-model="app.gpbaname" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Google Page Name</label>
+                                            <input type="text" placeholder="Enter your google page name" class="form-control" name="gppagename" ng-model="app.gppagename" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Google Publisher Url</label>
+                                            <input type="url" placeholder="Enter your google publisher link" class="form-control" name="gppageurl" ng-model="app.gppageurl" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"> 
+                                        <h5 class="fs-14 bold hint-text text-default">Site Analytics Information </h5>
+                                        <br />
+                                        <div class="form-group">
+                                            <label>Google Analytics</label>
+                                            <input type="text" placeholder="Enter Google Analytics code" class="form-control" name="googleanalytics" ng-model="app.googleanalytics" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bing Analytics</label>
+                                            <input type="text" placeholder="Enter Bing Analytics code" class="form-control" name="binganalytics" ng-model="app.binganalytics" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Yandex Analytics</label>
+                                            <input type="text" placeholder="Enter Yandex Analytics code" class="form-control" name="yandexanalytics" ng-model="app.yandexanalytics" required/>
+                                        </div>
+                                        <div class="form-action">
+                                            <button type="submit" class="btn btn--action btn--fixed bg-danger text-white"><i class="zmdi zmdi-google-play"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </secton>
