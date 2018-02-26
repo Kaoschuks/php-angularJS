@@ -22,7 +22,7 @@
 
     </head>
     
-    <body ng-app="adminApp" data-ma-theme="indigo" ng-class="(page == '/Login' || page == '/Dashboard') ? 'bg-gray-light' : 'bg-white'">
+    <body ng-app="adminApp" data-ma-theme="teal" ng-class="(page == '/Login') ? 'login-content bg-gray-light' : (page == '/Dashboard') ? 'bg-gray' : 'bg-white'">
         <main class="main">
             <div ng-class="(dataLoading == true) ? hidden : ''" class="page-loader">
                 <div class="page-loader__spinner">
@@ -34,7 +34,7 @@
 
             <header class="header bg-indigo" ng-if="sidebar !== false">
 
-                <div class="navigation-trigger" data-ma-action="aside-open" data-ma-target=".sidebar">
+                <div class="navigation-trigger" data-ma-action="aside-open" data-ma-target=".sidebar" ng-if="page == '/Dashboard'">
                     <div class="navigation-trigger__inner">
                         <i class="navigation-trigger__line"></i>
                         <i class="navigation-trigger__line"></i>

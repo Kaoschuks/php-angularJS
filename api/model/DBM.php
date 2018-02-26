@@ -8,6 +8,88 @@ Trait Manager
 
     final static function init()
     {
+        $type = DB_TYPE;
+        return self::$type();
+    }
+    
+    final static function Search()
+    {
+        DBManager::connect();
+        $response = Response::json(200, DBManager::Search());
+        DBManager::disconnect();
+        return $response;
+    }
+
+    final static function nosql()
+    {
+
+        switch($_SERVER['REQUEST_METHOD'])
+        {
+            case "DELETE":
+            {
+                $key = explode('/', $_REQUEST['controller']);
+                unset($key[0]);
+                $count = count($key);
+                if($count !== 2)
+                {
+                    self::$response = 'Bad request';
+                }
+                JSONManager::processJsonDB(
+                    DBManager::$table, 
+                    str_replace("-", " ", $key[1]), 
+                    str_replace("-", " ", $key[2])
+                );
+                self::$response = (self::$response !== 'Bad request') 
+                                    ? Response::json(200, JSONManager::deleteData())
+                                    : Response::json(400, self::$response);
+                break;
+            }
+            case "POST":
+            {              
+                DBManager::$data = mapping($_POST, Manager::$map);
+                $key = (is_array(DBManager::$key)) ? DBManager::$key[0] : DBManager::$key;
+                JSONManager::processJsonDB(
+                    DBManager::$table, 
+                    $key, 
+                    $_POST
+                );
+                self::$response = (JSONManager::addData() === 'inserted') 
+                                    ? Response::json(200, " inserted") 
+                                    : Response::json(200, " not inserted") ;
+                break;
+            }
+            case "GET":
+            {
+                $key = explode('/', $_REQUEST['controller']);
+                unset($key[0]);
+                DBManager::$key = null;
+                foreach($key as $index => $values)
+                {
+                    if($index % 2 === 0)
+                    {
+                        DBManager::$data[@ strtolower((string)$key[$index-1])] = str_replace("-", " ", $values);
+                    }elseif($index % 2 !== 0){
+                        DBManager::$key[] = strtolower((string)str_replace("-", " ", $values));
+                    }
+                }
+                (!empty(DBManager::$key))
+                    ? JSONManager::processJsonDB(DBManager::$table, DBManager::$key[0], DBManager::$data[DBManager::$key[0]])
+                    : JSONManager::processJsonDB(DBManager::$table);
+                  
+                $result = array_reverse(JSONManager::getData());
+                self::$response = Response::json(200, empty($result) ? 'No content' : $result);
+                break;
+            }
+            default:
+            {
+                throw new Exception("Invalid request method used");
+            }
+        }
+        return self::$response;
+    }
+
+    final static function sql()
+    {
         $key = explode('/', $_REQUEST['controller']);
         unset($key[0]);
         $count = count($key);
@@ -82,14 +164,6 @@ Trait Manager
         }
         DBManager::disconnect();
         return self::$response;
-    }
-    
-    final static function Search()
-    {
-        DBManager::connect();
-        $response = Response::json(200, DBManager::Search());
-        DBManager::disconnect();
-        return $response;
     }
 }
 

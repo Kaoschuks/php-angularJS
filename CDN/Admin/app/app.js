@@ -2,10 +2,10 @@
 angular
     .module('adminApp', ['ui.router', 'ngSanitize', 'LocalStorageModule', 'app.controllers', 'app.services', 'datatables'])
     .config(AppConfig)
-    .constant('appURL','http://127.0.0.1:8080/Caos/api/')
+    .constant('appURL','http://127.0.0.1:8080/simple/api/')
     .constant('modules',['Posts', 'Accounts', 'Email'])
-    .constant('facebookHandle','https://facebook.com/Caos Nigeria')
-    .constant('twitterHandle','https://twitter.com/Caos Nigeria')
+    .constant('facebookHandle','https://facebook.com/simple Nigeria')
+    .constant('twitterHandle','https://twitter.com/simple Nigeria')
     .run(run);
     run.$inject = ['$rootScope', '$state', '$http', '$location', 'localStorageService', 'BasicService'];
 

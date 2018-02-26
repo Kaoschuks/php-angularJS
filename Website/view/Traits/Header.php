@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="angApp">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,6 @@
     <meta name="bing-analytics" content="<?php echo $GLOBALS['seo']['binganalytics']; ?>">
     <meta name="yandex" content="<?php echo $GLOBALS['seo']['yandexanalytics']; ?>">
     <link rel="shortcut icon" href="<?php echo $GLOBALS['config']['ShortIcon']; ?>">
-    <base href="<?php echo $GLOBALS['config']['SITE']; ?>" />
     <title><?php echo $_GET['title']; ?></title>
       
     <!-- Google Plus -->

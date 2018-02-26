@@ -1,76 +1,41 @@
 
-
-				<div class="login ">
-					<div class="card m-t-20">
-						<div class="card-block">
-							<form name="form" class="padding-10 m-b-30 m-t-20" ng-submit="vm.login()" role="form">
-								<div class="m-b-40 m-t-30">
-									<h2 class="semi-bold fs-25 text-default">
-										Administrator
-									</h2>
-									<p class="text-muted m-t-10 m-b-20">
-										For your protection, please verify your identity.
-									</p>
-									<p class="text-danger text-left" ng-bind="vm.Error"></p>
-								</div>			
-								<div class="form-group m-t-10" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-									<label class="bold">Username</label>
+            <div class="login">
+                <div class="card animated fadeIn">
+                    <div class="card-block">
+                        <form name="form" ng-submit="vm.login()" class="padding-10 mt-5" role="form">
+							<p class="text-muted m-t-10 ">
+								For your protection, please verify your identity.
+							</p>
+							<p class="text-danger text-left" ng-bind="vm.Error"></p>
+							<div class="input-group">
+								<span class="input-group-addon">@</span>
+								<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
 									<input type="text" name="username" id="username" class="form-control" placeholder="Enter your username .." ng-model="vm.username" required autofocus/>
 									<i class="form-group__bar"></i>
 									<span ng-show="form.username.$dirty && form.username.$error.required" class="help-block text-danger">Username is required</span>
 								</div>
-								<div  class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-									<label class="bold">Password</label>
+							</div>
+							<div class="input-group" style="margin-top: 10px">
+								<span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+								<div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
 									<input type="password" name="password" id="password" class="form-control" placeholder="Enter your account password" ng-model="vm.password" required />
 									<i class="form-group__bar"></i>
 									<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block text-danger">Password is required</span>
 								</div>
-								<div class="row m-t-40">
-									<div class=" col-xs-12 col-sm-5 no-padding">
-										<a ng-href="Forgot-Password" class="pull-right fs-12 text-muted m-t-5 m-l-10">Forgot your credentals?</a>
-									</div>
-									<div class="col-sm-1"></div>
-									<div class="col-xs-12 col-sm-5 col-sm-offset-1 no-padding" align="right">
-										<button ng-disabled="form.$invalid || vm.dataLoading" type="submit" class="hidden-xs btn btn-md btn-cons btn-primary">Login Into Your Account</button>
-									</div>
+							</div>
+							<div class="row m-t-40">
+								<div class=" col-xs-12 col-sm-5 no-padding">
+									<a ng-href="Forgot-Password" class="pull-right fs-12 text-muted m-t-5 m-l-10">Forgot your credentals?</a>
 								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-            			<!-- <div class="login card">
-							<form id="loginForm" name="form" ng-submit="vm.login()" role="form">
-								<div align="center">
-									<h2 class="semi-bold fs-25 text-default">
-										Administrator
-									</h2>
-									<p class="text-muted m-t-10 m-b-20">
-										For your protection, please verify your identity.
-									</p>
-									<p class="text-danger text-left" ng-bind="vm.Error"></p>
-								</div>			
-								<div class="form-group m-t-10" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-									<label class="bold">Username</label>
-									<input type="text" name="username" id="username" class="form-control" placeholder="Enter your username .." ng-model="vm.username" required autofocus/>
-									<span ng-show="form.username.$dirty && form.username.$error.required" class="help-block text-danger">Username is required</span>
-									<i class="form-group__bar"></i>
+								<div class="col-sm-1"></div>
+								<div class="col-xs-12 col-sm-5 col-sm-offset-1 no-padding" align="right">
+									<button ng-disabled="form.$invalid || vm.dataLoading" type="submit" class="hidden-xs btn btn-md btn-cons btn-primary">Login Into Your Account</button>
 								</div>
-								<div  class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-									<label class="bold">Password</label>
-									<input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="vm.password" required />
-									<span ng-show="form.password.$dirty && form.password.$error.required" class="help-block text-danger">Password is required</span>
-									<i class="form-group__bar"></i>
-								</div>
-								<div class="row">
-									<div class="col-sm-5 no-padding">
-										<p><a ng-href="Forgot-Password" class="pull-right text-muted m-t-5">Forgot your credentals?</a></p>
-									</div>
-									<div class="col-sm-1"></div>
-									<div class="col-xs-12 col-sm-5 col-sm-offset-1 no-padding" align="right">
-										<button ng-disabled="form.$invalid || vm.dataLoading" type="submit" class="hidden-xs btn btn-md btn-cons btn-primary">Login Into Your Account</button>
-									</div>
-								</div>
-							</form>
-						</div>	 -->
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
 
   

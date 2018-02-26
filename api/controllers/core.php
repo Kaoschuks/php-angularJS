@@ -13,7 +13,14 @@ Abstract Class CoreController
 
     private static function authUser()
     {
-        
+        // DataSecurity::$headers['X-TOKEN'];
+        if($_SERVER['REQUEST_METHOD'] === "GET" && $_REQUEST['controller'] == 'Accounts/Guest')
+        {
+            return "authroised";
+        }
+        else{
+            return "authroise";
+        }
     }
 
     private static function getModule()
@@ -35,6 +42,14 @@ Abstract Class CoreController
 
     public static function Output()
     {
+        // $auth = self::authUser();
+        // if($auth !== "authorised")
+        // {
+        //     return Response::json(
+        //         403,
+        //         "Access denied to server. Authorization required" 
+        //     );
+        // }
         // check if controller is empty
         return (@ empty(explode('/', $_GET['controller'])[0]) || @ !isset($_GET['controller'])) 
             ? Response::json(
@@ -47,8 +62,9 @@ Abstract Class CoreController
 
 try
 {
+    DataSecurity::init();
+    // print_r(DataSecurity::$headers);
     $result = CoreController::Output();
-    //print_r(processDir(Server_Root."/CDN/uploads"));
 }
 catch(Exception $ex)
 {

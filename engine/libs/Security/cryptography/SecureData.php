@@ -2,16 +2,13 @@
 
 class DataSecurity
 {
-    function __construct()
-    {
-        $this->headers = apache_request_headers();
-        $this->browser = null;
-        $this->validated = null;
-    }
+    public static $headers, $browser, $validated, $data;
 
-    function  __destruct()
+    function init()
     {
-        unset($this);
+        self::$headers = apache_request_headers();
+        self::$browser = null;
+        self::$validated = null;
     }
 
     public static function secureData($type = null, $data = array())
@@ -24,18 +21,18 @@ class DataSecurity
                 if((string) $type === "Encode")
                 {
                     // to use aes cryptographic algorithm to secure data
-                    //$this->data = (string) self::cryptoJsAesEncrypt($_SESSION['JWToken'], (string)base64_encode(json_encode($data)));
+                    // self::$data = (string)base64_encode((string)self::cryptoJsAesEncrypt(KEY, json_encode($data)));
                     
                     // to base 64 rncode data
-                    $this->data = (string) base64_encode(json_encode($data));
+                    self::$data = (string) base64_encode(json_encode($data));
                 }
                 elseif((string) $type === "Decode")
                 {
                     // to base 64 decode data
-                    $this->data = @ (array) json_decode(base64_decode($data['data']), TRUE);
+                    self::$data = @ (array) json_decode(base64_decode($data['data']), TRUE);
                     
                     // to use aes cryptographic algorithm to unsecure data
-                    //$this->data = (array) self::cleanInputs(self::cryptoJsAesDecrypt($_SESSION['JWToken'], $data['data']));
+                    //self::$data = (array) self::cleanInputs(self::cryptoJsAesDecrypt($_SESSION['JWToken'], $data['data']));
                 }
                 break;
             }
@@ -44,7 +41,7 @@ class DataSecurity
                 throw new Exception("Bad Request Method Used", 0);                
             }
         }
-        return $this->data;
+        return self::$data;
     }
 
     protected function cryptoJsAesDecrypt($passphrase, $jsonString)
@@ -95,34 +92,34 @@ class DataSecurity
     {
         if(!empty(apache_request_headers()['X-Token']))
         {
-            $validated = validateToken(explode(" ", $this->headers['Authorization'])[1]);
+            $validated = validateToken(explode(" ", self::$headers['Authorization'])[1]);
             switch(is_array($validated))
             {
                 case true:
                 {
-                    $this->validated = true;
+                    self::$validated = true;
                     if($validated['data']->useragent === $_SERVER['HTTP_USER_AGENT'] && $validated['data']->ipaddress === $_SERVER['REMOTE_ADDR'])
-                        $this->browser = true;
+                        self::$browser = true;
                     else
-                        $this->browser = false;
+                        self::$browser = false;
                     break;
                 }
                 case false:
                 {
-                    $this->validated = $validated;
+                    self::$validated = $validated;
                     break;
                 }
             }
         }
         else{
-            $this->validated = "CRSF missing";
+            self::$validated = "CRSF missing";
         }
     }
 
     public static function verifyUser()
     {
         self::verifyJWT();
-        if($this->browser !== true || $this->validated !== true)
+        if(self::$browser !== true || self::$validated !== true)
             return modelResponse(403, "Authorzation failed. Try Again");
         else
             return ["Status" => 200];

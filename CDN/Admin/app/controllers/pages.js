@@ -17,12 +17,6 @@ function pagesController($scope, modules, $state, localStorageService, $rootScop
         // get all user data
         switch($state.current.name)
         {
-            case "Pages":
-            {
-                getAboutUsData();
-                getTermsData();
-                break;
-            }
             case "Faqs":
             {
                 getFaq();
@@ -137,86 +131,4 @@ function pagesController($scope, modules, $state, localStorageService, $rootScop
         );
     }
 
-    function getAboutUsData()
-    {
-        $rootScope.dataLoading = true;
-        BasicService.GetData("Pages", "/About", function(response)
-        {
-            if (response.Status == 200) {
-                pages.aboutUS = response.Output;
-                $rootScope.dataLoading = false;
-                siteFunctions.wysihtml5();
-            } else {
-                $scope.Error = response.Output;
-                $rootScope.dataLoading = false;
-            }
-        });
-    }
-
-    function saveAboutUs()
-    {
-        $rootScope.dataLoading = true;
-        BasicService.serverRequest
-        (
-            "/Pages/About", 
-            { 
-                data: pages.aboutUS,
-            }, 
-            "POST",
-            function(response)
-            {
-                if (response.Status == 200) {
-                    $rootScope.dataLoading = false;
-                    clickOkPopup();
-                    getAboutUsData();
-                    window.reload();
-                } else {
-                    $scope.Error = response.Output;
-                    $rootScope.dataLoading = false;
-                    clickErrPopup();
-                }
-            }
-        );
-    }
-
-    function getTermsData()
-    {
-        $rootScope.dataLoading = true;
-        BasicService.GetData("/Pages/Terms", "", function(response)
-        {
-            if (response.Status == 200) {
-                pages.Terms = response.Output;
-                $rootScope.dataLoading = false;
-            } else {
-                $scope.Error = response.Output;
-                $rootScope.dataLoading = false;
-            }
-        });
-    }
-
-    function saveTerm()
-    {
-        $rootScope.dataLoading = true;
-        BasicService.serverRequest
-        (
-            "/Pages/Terms", 
-            { 
-                data: pages.Terms,
-            }, 
-            "POST",
-            function(response)
-            {
-                if (response.Status == 200) {
-                    $scope.Error = null;
-                    $rootScope.dataLoading = false;
-                    clickOkPopup();
-                    Window.reload();
-                } else {
-                    $scope.Error = response.Output;
-                    $rootScope.dataLoading = false;
-                    clickErrPopup();
-                }
-            }
-        );
-    }
 };

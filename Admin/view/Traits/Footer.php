@@ -72,7 +72,6 @@
         <script src="<?php echo $GLOBALS['config']['CDN']?>app/controllers/blog.js"></script>
         <script src="<?php echo $GLOBALS['config']['CDN']?>app/controllers/account.js"></script>
         <script src="<?php echo $GLOBALS['config']['CDN']?>app/controllers/pages.js"></script>
-        <script src="<?php echo $GLOBALS['config']['CDN']?>app/controllers/newsletter.js"></script>
         <!-- Services -->
         <script src="<?php echo $GLOBALS['config']['CDN']?>app/services/request.js"></script>
         <script src="<?php echo $GLOBALS['config']['CDN']?>app/services/services.js"></script>

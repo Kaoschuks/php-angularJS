@@ -9,7 +9,6 @@ Class Routing
         switch($route)
         {
             case "Website":
-            case "Mobile":
             {
                 if(empty($_GET['uri']))
                 {

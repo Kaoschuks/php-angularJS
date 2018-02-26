@@ -1,6 +1,6 @@
 
-var templateURL = 'http://127.0.0.1:8080/Caos/CDN/Admin/';
-var uploadURL = 'http://127.0.0.1:8080/Caos/CDN/uploads/';
+var templateURL = 'http://127.0.0.1:8080/simple/CDN/Admin/';
+var uploadURL = 'http://127.0.0.1:8080/simple/CDN/uploads/';
 var lock = true;
 
 (function() {

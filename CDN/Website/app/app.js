@@ -1,8 +1,8 @@
 "use strict";
 
-var templateUrl = 'http://127.0.0.1:8080/Caos/CDN/Website/';
-var api = 'http://127.0.0.1:8080/Caos/api/';
-var site = 'http://127.0.0.1:8080/Caos/Website';
+var templateUrl = 'http://127.0.0.1:8080/simple/CDN/Website/';
+var api = 'http://127.0.0.1:8080/simple/api/';
+var site = 'http://127.0.0.1:8080/simple/Website';
 var $arr = {};
 
 angular

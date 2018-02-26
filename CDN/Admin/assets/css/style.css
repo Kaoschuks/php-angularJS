@@ -1,67 +1,10 @@
-
-.bg-login
-{
-    background-size: cover !important;
-}
-.sidebar-shadow
-{
-    box-shadow: 2px 0 10px rgba(0,0,0,.08);
-}
-.shadow-bottom
-{
-    box-shadow: 5px 0px 10px rgba(0,0,0,.08);
-}
-.bg-indigo-light
-{
-    background-color: rgb(59, 120, 231) !important;
-}
-.bg-indigo-light *
-{
-    color: #ffffff !important;
-}
-.bg-gray-light
-{
-    background-color: #FAFAFA !important;
-}
-.input, .select
-{
-    padding-left : 10px !important;
-}
-.input-sm
-{
-    height: 30px !important;
-}
 .h-100
 {
     height: 100vh !important;
 }
-.h-90
-{
-    height: 90vh !important;
-}
-.h-80
-{
-    height: 80vh !important;
-}
-.h-70
-{
-    height: 70vh !important;
-}
-.h-60
-{
-    height: 60vh !important;
-}
-.h-50
-{
-    height: 50vh !important;
-}
 .text-black
 {
     color: #000 !important;
-}
-.text-dark
-{
-    color: #666 !important;
 }
 .text-default
 {
@@ -80,91 +23,34 @@ ul.top-nav .user
 }
 .login
 {
-    margin-top: -40px !important;
+    margin-top: -30px !important;
     margin-bottom: 30px !important;
-}
-#loginForm
-{
-    width: 320px !important;
 }
 .header
 {
-    height: 60px !important;
-    box-shadow: 0px !important;
+    height: 60px !important
 }
-.page-table
+#content
 {
-    top: -20px !important;
     position: relative !important;
+    top: 15px !important;
 }
 .manager-table
 {
     position: relative !important;
-    top: -30px !important;
-}
-.page-table thead *
-{
-    padding: 5px 10px !important;
-}
-tr td
-{
-    font-weight: 500 !important; 
+    top: -40px !important;
 }
 .td-condensed
 {
-    margin-bottom: -25px !important;
-    padding-top: 0px !important;
-    height: 35px !important; 
-    max-width: 400px !important;
+    padding-bottom: 20px !important;
+    height: 43px !important; 
     display: block;
     overflow:hidden;
     word-wrap:break-word;
 }
-.td-condensed *
-{
-    font-weight: 400 !important;
-    font-size: 13px !important;
-}
-.content#content--full
-{
-    position: relative !important;
-    top: -15px !important;
-}
-.p-r-5
-{
-    padding-right: 5px !important;
-}
-.p-r-10
-{
-    padding-right: 10px !important;
-}
-.p-l-5
-{
-    padding-left: 5px !important;
-}
-.p-l-10
-{
-    padding-left: 10px !important;
-}
-.p-t-20
-{
-    padding-top: 20px !important;
-}
-.p-t-30
-{
-    padding-top: 30px !important;
-}
-.m-t-5
-{
-    margin-top: 5px !important;
-}
 .m-t-10
 {
     margin-top: 10px !important;
-}
-.m-t-15
-{
-    margin-top: 15px !important;
 }
 .m-t-20
 {
@@ -174,9 +60,25 @@ tr td
 {
     margin-top: 30px !important;
 }
+.m-b-30
+{
+    margin-bottom: 30px !important;
+}
+.m-b-30
+{
+    margin-bottom: 30px !important;
+}
 .m-t-40
 {
     margin-top: 40px !important;
+}
+.m-t-50
+{
+    margin-top: 50px !important;
+}
+.m-t-80
+{
+    margin-top: 80px !important;
 }
 .m-t-100
 {
@@ -185,6 +87,10 @@ tr td
 .p-l-20
 {
     padding-left: 20px !important;
+}
+.p-l-30
+{
+    padding-left: 30px !important;
 }
 .card-header.b-b
 {
@@ -205,7 +111,7 @@ tr td
 .btn-upload
 {
     width: 200px !important;
-    margin: 200px auto 150px;
+    margin: 150px auto 150px;
 }
 .featured-box
 {
@@ -221,9 +127,13 @@ tr td
 {
     padding: 0px !important;
 }
+.no-margin
+{
+    margin: 0px !important;
+}
 .bg-gray
 {
-    background: #eee !important;
+    background-color: #fafafa !important;
 }
 .text-gray
 {
@@ -236,10 +146,6 @@ tr td
 .padding-10
 {
     padding: 10px !important;
-}
-.padding-5
-{
-    padding: 5px !important;
 }
 .padding-15
 {
@@ -277,10 +183,6 @@ tr td
 {
     font-size: 14px !important;
 }
-.fs-15
-{
-    font-size: 15px !important;
-}
 .fs-16
 {
     font-size: 16px !important;
@@ -289,57 +191,23 @@ tr td
 {
     position: relative;
     height: 350px !important;
-    padding-bottom: 30px !important;
-}
-.seo#line-chart
-{
-    height: 400px !important;
-    padding-bottom: 30px !important;
 }
 i.quick-stats-icon
 {
     border-radius: 100px; 
     padding: 13px 15px;
 }
-.m-b-10
-{
-    margin-bottom: 10px !important;
-}
 .m-b-15
 {
     margin-bottom: 15px !important;
-}
-.m-b-100
-{
-    margin-bottom: 100px !important;
-}
-.m-b-30
-{
-    margin-bottom: 30px !important;
-}
-.m-b-40
-{
-    margin-bottom: 40px !important;
 }
 .m-r-15
 {
     margin-right: 15px !important;
 }
-.m-r-20
-{
-    margin-right: 20px !important;
-}
 .m-r-25
 {
     margin-right: 25px !important;
-}
-.m-r-35
-{
-    margin-right: 35px !important;
-}
-.m-r-50
-{
-    margin-right: 50px !important;
 }
 .m-l-10
 {
@@ -353,6 +221,14 @@ i.quick-stats-icon
 {
     margin-left: 20px !important;
 }
+.p-t-20
+{
+    padding-top: 20px !important;
+}
+.p-r-10
+{
+    padding-right:10px !important;
+}
 .text-default
 {
     color: #999 !important;
@@ -361,33 +237,79 @@ i.quick-stats-icon
 {
     font-weight: 100 !important;
 }
+.content__title
+{
+    padding-left: 0px !important;
+}
+.content__title h1
+{
+    margin-bottom: -10px !important;
+}
 img.gallery-img
 {
     height: 150px; 
     width: 100%; 
+    border: 3px solid #eee; 
+    padding: 5px;
 }
 img.gallery-img:hover
 {
-    border:3px solid rgb(94, 169, 204); 
-}
-.img-wrap {
-    position: relative;
-}
-.img-wrap .close {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    z-index: 100;
+    border:3px solid #069; 
 }
 .form-group label 
 {
     margin-bottom: -20px !important;
 }
-.b-b
+span.help-block
 {
-    border-bottom: 1px solid #eee;
+    color: red;
+    display: hidden !important;
+    height: 0px;
 }
-.wysihtml5-toolbar li a
+
+.bg-gray-light
 {
-    color: #555 !important;
+    background-color: #eee !important;
+}
+.p-l-10
+{
+    padding-left: 10px !important;
+}
+.p-l-70
+{
+    padding-left: 70px !important;
+}
+.sidebar
+{
+    box-shadow: 2px 0 10px rgba(0,0,0,.08);
+}
+.shadow-bottom
+{
+    box-shadow: 5px 0px 10px rgba(0,0,0,.08);
+}
+.b-l
+{
+    border-left: 1px dashed #333;
+}
+.top-menu
+{
+    justify-content:left !important;
+    padding-left: 20px !important;
+}
+
+body.login-content:before 
+{
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #607D8B;
+    content: "";
+    z-index: 0;
+  }
+.login
+{
+    margin-top: 0px !important;
+    overflow: hidden !important;
 }

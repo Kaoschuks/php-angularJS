@@ -4,7 +4,6 @@
     define("Server_Root", "../../");
     define("KEY", parse_ini_file('config/Keys.conf')['DBKEY']);
     define("SALT", parse_ini_file('config/Keys.conf')['SALT']);
-    define('OPAUTH_LIB_DIR', Server_Root.'../engine/libs/Security/authentication/Opauth/');
     
     function includeFile($filename)
     {
@@ -132,12 +131,6 @@
         exit;
     }
 
-    function internalServiceError($error)
-    {
-        update_file(getenv('ERROR_LOG'), 'Error: ' . $error."\n\n");
-        return modelResponse(500, 'Error: ' . $error);
-    }
-
     function parse_ini_file_format($arr = array())
     {
         $count = count($arr);
@@ -169,7 +162,7 @@
     
     function generateCsrfToken()
     {
-        //return base64_encode(bin2hex(openssl_random_pseudo_bytes(8)));
+        return base64_encode(bin2hex(openssl_random_pseudo_bytes(8)));
     }   
 
 ?>

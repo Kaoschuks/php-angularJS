@@ -21,6 +21,7 @@ Trait Response
             array(
                 "Status" => (int)$status,
                 "Message" => (string)self::$statuscodes[$status],
+                //"Output" => DataSecurity::secureData('Encode', $data)
                 "Output" => $data
             ),
             JSON_PRETTY_PRINT
