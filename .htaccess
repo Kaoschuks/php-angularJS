@@ -1,0 +1,7 @@
+SetEnv FIREWALL_LOG engine/logs/firewall.log
+SetEnv SERVICE_LOG engine/logs/services.json
+SetEnv ERROR_LOG engine/logs/error.log
+
+
+# Disable directory browsing
+Options All -Indexes
