@@ -8,20 +8,11 @@ Trait Response
     {
         header("content-type:application/json");
         @ header("HTTP/1.1 ".(int)$status." ".self::$statuscodes[$status]);
-        // if($_GET['controller'] !== "Analytics/Logs" || $_GET['controller'] !== "Accounts/Guest" || $_GET['controller'] !== 'Analytics/Visitor/View')
-        // {
-        //     self::recordRequest(
-        //         $status, 
-        //         self::$statuscodes[$status], 
-        //         (is_string($data) || $_SERVER['REQUEST_METHOD'] !== 'GET') ? $data : "Request successful"
-        //     );
-        // }
         if(is_array($data)){$data['count'] = count($data);}
         return json_encode(
             array(
                 "Status" => (int)$status,
                 "Message" => (string)self::$statuscodes[$status],
-                //"Output" => DataSecurity::secureData('Encode', $data)
                 "Output" => $data
             ),
             JSON_PRETTY_PRINT

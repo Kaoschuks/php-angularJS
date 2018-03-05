@@ -22,7 +22,7 @@ require_once('Cache/Logger.php');
 require_once('Uploader/BulletProof.php');
 
 
-const DB_TYPE = 'sql';
+const DB_TYPE = 'nosql';
 
 const status = array(
             100 => 'Continue',  

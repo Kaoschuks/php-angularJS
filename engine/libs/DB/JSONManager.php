@@ -47,23 +47,36 @@ Abstract class JSONManager
         return ($status) ? 'inserted' : 'not inserted' ;
     }
 
-    private function updateData()
+    public function updateData()
+    {
+
+        $status = (bool)self::$db->update(
+            self::$table, 
+            self::$key,
+            self::$data,
+            $GLOBALS['PUT']
+        );
+        return ($status) ? 'updated' : 'not updated' ;
+    }
+
+    public function resetData()
     {
         $status = (bool)self::$db->update(
             self::$table, 
             self::$data,
             true
         );
-        return ($status) ? 'inserted' : 'not inserted' ;
+        return ($status) ? 'updated' : 'not updated' ;
     }
 
     public function deleteData()
     {
+        $status;
         if(empty(self::$data))
         {
             $status = (bool)self::$db->deleteAll(self::$table);
         }
-        else if(!empty(self::$data) && is_string(empty(self::$data)))
+        else if(!empty(self::$data) && is_string(self::$data))
         {
             $status = self::$db->delete(
                 self::$table, 
@@ -71,7 +84,6 @@ Abstract class JSONManager
                 self::$data
             );
         }
-        echo $status;
         return ($status) 
                 ? "deleted" 
                 : 'not deleted' ;
